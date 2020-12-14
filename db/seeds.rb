@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do |i|
-  Menu.create(name: "Menu:#{i}")
-end
+Menu.create(name: "Breakfast")
+Menu.create(name: "Lunch")
+Menu.create(name: "Dinner")
 
 puts "seeded"
