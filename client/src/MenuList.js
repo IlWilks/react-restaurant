@@ -3,11 +3,13 @@ import Menu from "./Menu";
 
 
 const MenuList = (props) => (
-  <div>
+  <ul>
     {props.menus.map((m) => (
-      <Menu key={m.id} {...m}/>
+      <Menu 
+        deleteMenu = {props.deleteMenu}
+        key={m.id} {...m}/>
     ))}
-  </div>
+  </ul>
 )
 
 export default MenuList;

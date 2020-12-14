@@ -5,19 +5,21 @@ import { useState } from "react";
 export default (props) => {
   const [name, setName] = useState("");
   const handleSubmit = (e) => {
-    props.addTodo({ name });
+    props.addMenu({ name });
     setName("");
   };
+
+  
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Input
-        label={"Todo"}
+        label={"Menu"}
         value={name}
         onChange={(e) => {
           setName(e.target.value);
         }}
       />
-      <Form.Button type="submit">add</Form.Button>
+      <Form.Button type="submit">Add Menu</Form.Button>
     </Form>
   );
 }

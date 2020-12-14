@@ -35,6 +35,26 @@ function App() {
     }
   }
 
+  const addMenu = async (menu) =>{
+    try{
+      let res = await axios.post(`/api/menus`, menu)
+      setMenus([...menus, res.data])
+    }catch (err) {
+      console.log(err);
+    }
+
+  }
+
+  const deleteMenu = async (id) => {
+    try{
+
+      let res = await axios.delete(`/api/menus/${id}`)
+      let newMenus = menus.filter((m) => m.id !== id);
+      setMenus(newMenus);
+    }catch (err){
+      console.log(err)
+    }
+  }
  
 
 
@@ -45,8 +65,10 @@ function App() {
     <Container>
       <Header>React Restaurant</Header>
       <>
-      <MenuForm/>
-      <MenuList menus = {menus}/>
+      <MenuForm addMenu = {addMenu}/>
+      <MenuList 
+        deleteMenu = {deleteMenu}
+        menus = {menus}/>
       </>
     </Container>
   );
